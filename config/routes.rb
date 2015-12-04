@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'devices#index'
 
+  resources :users, only: [:new, :create, :show, :index]
+
   resources :devices, only: [:new, :create, :edit, :update, :index, :show] do
     resources :updates, only: [:new, :create]
   end

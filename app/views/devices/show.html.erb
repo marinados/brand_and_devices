@@ -1,10 +1,14 @@
-<%= @device.inspect %>
-<br>
-<%= @device.users.inspect %>
+<ul>
+<li>Nom : <%= @device.name %></li>
+<li>Numéro de série : <%= @device.series %></li>
+<li>Description : <%= @device.description %></li>
+<li>Actuellement assigné à : <%= @device.users.last %></li>
 
-<br>
-<%= @device.devices_users.inspect%>
-<br>
-<%= @updates.inspect %>
+</ul>
+<ul>
+<%@timeline.each do |element| %>
+  <li><%= element %></li>
+<% end %>
+</ul>
 <br>
 <%= link_to 'Ajouter un update sur le matériel', new_device_update_path(@device) %>

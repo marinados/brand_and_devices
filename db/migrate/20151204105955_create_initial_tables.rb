@@ -25,6 +25,8 @@ class CreateInitialTables < ActiveRecord::Migration
     create_table :devices_users do |t|
       t.references :device
       t.references :user
+
+      t.timestamps
     end
 
     create_table :updates do |t|

@@ -35,7 +35,7 @@ class DevicesController < ApplicationController
 
   def show
     set_device
-    @updates = @device.updates
+    @timeline = DeviceProfile.new(@device).list_all_triggers
   end
 
   def index

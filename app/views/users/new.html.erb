@@ -1,0 +1,7 @@
+<%= form_for @user do |user_form| %>
+  <%= user_form.label :name, 'Nom de l\'utilisateur' %>
+  <%= user_form.text_field :name %>
+  <%= user_form.label :email, 'Email de l\'utilisateur' %>
+  <%= user_form.text_field :email %>
+  <%= user_form.submit 'Enregistrer l\'utilisateur'%>
+<% end %>
