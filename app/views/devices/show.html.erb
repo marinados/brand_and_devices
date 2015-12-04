@@ -1,3 +1,7 @@
 <%= @device.inspect %>
 <br>
 <%= @device.users.inspect %>
+
+<%= @updates.inspect %>
+
+<%= link_to 'Ajouter un update sur le matériel', new_device_update_path(@device) %>

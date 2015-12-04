@@ -3,6 +3,8 @@
   <%= device_form.text_field :name %>
   <%= device_form.label :description, 'Description du matériel' %>
   <%= device_form.text_area :description %>
+  <%= device_form.label :series, 'Numéro de série' %>
+  <%= device_form.text_field :series %>
   <%= device_form.label :category, 'Catégorie du matériel' %>
   <%= device_form.collection_select :category_id, @categories, :id, :to_s %>
   <%= device_form.label :user, 'Utilisateur' %>

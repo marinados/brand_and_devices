@@ -1,0 +1,4 @@
+<%= form_for @update, url: device_updates_path(@device) do |update_form| %>
+  <%= update_form.text_area :comment %>
+  <%= update_form.submit 'Sauvegarder votre commentaire' %>
+<% end %>
