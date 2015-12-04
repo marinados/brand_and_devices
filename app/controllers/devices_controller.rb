@@ -7,7 +7,7 @@ class DevicesController < ApplicationController
     @device = Device.new(set_params_device)
     if @device.save
       @device.devices_users.create(user: User.find(params[:device][:users]))
-      redirect_to devices_path
+      redirect_to device_path(@device)
     else
       set_new_variables
       render 'new'
@@ -16,11 +16,13 @@ class DevicesController < ApplicationController
 
   def edit
     set_device
+    @devices_user = @device.devices_users.new
+    @users = User.all
   end
 
   def update
     set_device
-    link = @device.devices_users.new(user: User.find(params[:device][:users]))
+    link = @device.devices_users.new(user: User.find(params[:devices_user][:user_id]))
     if link.save
       redirect_to device_path(@device)
     else
