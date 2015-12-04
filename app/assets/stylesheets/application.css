@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+*= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
@@ -20,12 +21,12 @@
 }
 
 .container-fluid {
-  height: 350px;
+  height: 300px;
   background-color: #00E600;
 }
 
-table {
-  margin-top: -100px;
+.container {
+  margin-top: -90px;
   background-color: white;
   border-radius: 5px;
 }
@@ -38,13 +39,32 @@ h1 {
 
 .new {
   font-size: 1.5em;
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: #427a5b;
   border: none;
 }
 
-footer {
-  height: 100px;
-  background-color: #403f3f;
+.fa-chevron-left {
+  position: absolute;
+  text-decoration: none;
+  color: black;
+  top: 30px;
+  left: 30px;
+}
+
+.fa-chevron-left:hover {
+  opacity: 0.5;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+.new-form {
+  padding: 50px;
+}
+
+.index-table {
+  padding: 10px;
 }
 

@@ -1,4 +1,13 @@
-<%= form_for @devices_user, url: device_path(@device), html: {method: :patch} do |devices_user_form| %>
-  <%= devices_user_form.collection_select :user_id, @users, :id, :to_s %>
-  <%= devices_user_form.submit 'Enregistrer les changements' %>
-<% end %>
+<div class="container-fluid text-center">
+  <h1>Changer le propriétaire</h1>
+  <%= link_to device_path(@device) do %>
+    <button class='new btn btn-success'>Retour à l'équipement</button>
+  <% end %>
+</div>
+<div class="container new-form">
+  <%= bootstrap_form_for @devices_user, url: device_path(@device), html: {method: :patch} do |devices_user_form| %>
+    <%= devices_user_form.collection_select :user_id, @users, :id, :to_s, label: 'Nouvel utilisateur' %>
+    <%= devices_user_form.submit 'Enregistrer les changements' %>
+  <% end %>
+</div>
+

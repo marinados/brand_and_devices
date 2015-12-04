@@ -4,7 +4,7 @@
   <button class="new btn btn-success">Ajouter un équipement</button>
 <% end %>
 </div>
-<div class="container">
+<div class="container index-table">
   <table class="table table-hover sortable">
     <thead>
       <tr>
@@ -17,14 +17,14 @@
     </thead>
     </tbody>
       <% @devices.each do |device| %>
-      <tr>
-        <td class='col-md-2'><%= "Jean-Baptiste Beck" %></td>
-        <td class='col-md-3'><a href="<%= "jean-baptiste.beck@brandandcelebrities.com" %>"><%= "Jean-Baptiste Beck" %></a></td>
-        <td class='col-md-2'><%= device.category.label %></td>
-        <td class='col-md-2'><%= device.name %></td>
-        <td class='col-md-3'><%= device.description %></td>
-      </tr>
-    <% end %>
+        <tr data-href= "<%= device_url(device) %>" class="clickable-row">
+          <td class='col-md-2'><%= device.users.last %></td>
+          <td class='col-md-3'><a href="mailto:<%= device.users.last.email %>"><%= device.users.last.email %></a></td>
+          <td class='col-md-2'><%= device.category.label %></td>
+          <td class='col-md-2'><%= device.name %></td>
+          <td class='col-md-3'><%= device.description %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

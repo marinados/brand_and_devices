@@ -1,3 +1,22 @@
-<%= @device.inspect %>
-<br>
-<%= @device.users.inspect %>
+<div class="container-fluid text-center">
+  <h1><%= @device.name %></h1>
+  <h2><%= @last_user.first %></h2>
+  <%= link_to devices_path do %>
+    <button class='btn btn-success'>Tous les équipements</button>
+  <% end %>
+  <%= link_to edit_device_path do %>
+    <button class='btn btn-success'>Modifier</button>
+  <% end %>
+</div>
+<div class="container">
+  <h4>Catégorie :</h4>
+  <p><%= @device.category.label %></p>
+  <h4>Description :</h4>
+  <p><%= @device.description %></p>
+  <h4>Liste des anciens propriétaires :</h4>
+  <ul>
+    <% @device.users.reverse_each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+  </ul>
+</div>

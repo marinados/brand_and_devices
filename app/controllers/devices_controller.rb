@@ -1,12 +1,6 @@
 class DevicesController < ApplicationController
   def new
-
-    @device = Device.new
-    @users = User.all.map(&:name)
-    @category_names = Category.all.map(&:label)
-
     set_new_variables
-
   end
 
   def create
@@ -39,6 +33,7 @@ class DevicesController < ApplicationController
 
   def show
     set_device
+    @last_user = DevicesUser.where(device: @device).order("updated_at")
   end
 
   def index
