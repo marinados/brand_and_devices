@@ -35,7 +35,7 @@ class DevicesController < ApplicationController
 
   def show
     set_device
-    @last_user = DevicesUser.where(device: @device).order("updated_at")
+    #@last_user = DevicesUser.where(device: @device).order("updated_at")
     @updates = @device.updates
   end
 
