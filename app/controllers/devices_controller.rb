@@ -45,7 +45,7 @@ class DevicesController < ApplicationController
   private
 
   def set_params_device
-    params.require(:device).permit(:name, :description, :category_id)
+    params.require(:device).permit(:name, :description, :category_id, :series)
   end
 
   def set_new_variables

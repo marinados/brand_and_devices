@@ -6,10 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Category.destroy_all
 ['ordinateur', 'écran', 'souris', 'casque', 'clé USB'].each do |type|
   Category.create(label: type)
 end
 
+User.destroy_all
 [
   'Quentin Bordage': 'quentin',
   'Julien Boulenguer': 'julien',
