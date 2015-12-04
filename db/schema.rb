@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151204131944) do
     t.datetime "updated_at"
   end
 
-  create_table "devices_users", id: false, force: :cascade do |t|
+  create_table "devices_users", force: :cascade do |t|
     t.integer "device_id"
     t.integer "user_id"
   end
