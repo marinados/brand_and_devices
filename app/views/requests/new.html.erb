@@ -1,0 +1,9 @@
+<%= form_for @request do |request_form| %>
+  <%= request_form.label :user_id, 'Utilisateur' %>
+  <%= request_form.collection_select :user_id, @users, :id, :to_s %>
+  <%= request_form.label :device_id, 'Matériel' %>
+  <%= request_form.collection_select :device_id, @devices, :id, :name %>
+  <%= request_form.label :end_date, "Jusqu'à quand" %>
+  <%= request_form.date_field :end_date %>
+  <%= request_form.submit 'Enregistrer la demande' %>
+<% end %>

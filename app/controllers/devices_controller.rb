@@ -22,7 +22,9 @@ class DevicesController < ApplicationController
 
   def update
     set_device
-    link = @device.devices_users.new(user: User.find(params[:devices_user][:user_id]))
+    link = @device.devices_users.new(
+      user: User.find(params[:devices_user][:user_id])
+    )
     if link.save
       redirect_to device_path(@device)
     else
@@ -34,6 +36,7 @@ class DevicesController < ApplicationController
   def show
     set_device
     @last_user = DevicesUser.where(device: @device).order("updated_at")
+    @updates = @device.updates
   end
 
   def index

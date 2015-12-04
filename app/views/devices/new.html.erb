@@ -8,6 +8,7 @@
   <%= bootstrap_form_for @device do |device_form| %>
     <%= device_form.text_field :name, label: 'Nom du matériel' %>
     <%= device_form.text_area :description, label: 'Description du matériel' %>
+    <%= device_form.text_field :series, label: 'Numéro de série' %>
     <%= device_form.collection_select :category_id, @categories, :id, :to_s, label: 'Catégorie du matériel' %>
     <%= device_form.collection_select :users, @users, :id, :to_s, label: 'Utilisateur'  %>
     <div class="text-center">
@@ -15,4 +16,3 @@
     </div>
   <% end %>
 </div>
-
