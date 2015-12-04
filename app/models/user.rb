@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :requests
 
   include PgSearch
-  pg_search_scope :search_by_name, against: [ :name ]
+  multisearchable against: :name
 
   def to_s
     name

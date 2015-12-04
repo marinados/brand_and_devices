@@ -43,6 +43,23 @@ class DevicesController < ApplicationController
     @devices = Device.all
   end
 
+  def search
+    @results = PgSearch.multisearch(params[:search])
+    @devices = []
+    @results.each do |result|
+      if result.searchable_type == 'Device'
+        Device.where("name ILIKE ?", "%#{result.content}%").each do |device|
+          @devices << device
+        end
+      elsif result.searchable_type == 'User'
+        User.where("name ILIKE ?", "%#{result.content}%").first.devices.each do |device|
+          @devices << device
+        end
+      end
+    end
+    render 'index'
+  end
+
   private
 
   def set_params_device
