@@ -1,0 +1,10 @@
+<%= form_for @device do |device_form| %>
+  <%= device_form.label :name, 'Nom du matériel' %>
+  <%= device_form.text_field :name %>
+  <%= device_form.label :description, 'Description du matériel' %>
+  <%= device_form.text_area :description %>
+  <%= device_form.label :category, 'Catégorie du matériel' %>
+  <%= device_form.select :category, @categories %>
+  <%= device_form.label :user, 'Utilisateur' %>
+  <%= device_form.select :users, @users %>
+<% end %>

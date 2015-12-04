@@ -2,6 +2,7 @@ class DevicesController < ApplicationController
   def new
     @device = Device.new
     @users = User.all
+    @categories = Category.all
   end
 
   def create
@@ -19,6 +20,6 @@ class DevicesController < ApplicationController
   private
 
   def set_params_device
-    params.require(:device).permit(:name, :description, :user)
+    params.require(:device).permit(:name, :description, :category, :user)
   end
 end
