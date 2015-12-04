@@ -12,6 +12,7 @@ class DevicesController < ApplicationController
   end
 
   def index
+    @devices = Device.all
   end
 
   private
