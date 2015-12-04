@@ -1,11 +1,9 @@
-<%= form_for @device do |device_form| %>
-  <%= device_form.label :name, 'Nom du matériel' %>
-  <%= device_form.text_field :name %>
-  <%= device_form.label :description, 'Description du matériel' %>
-  <%= device_form.text_area :description %>
-  <%= device_form.label :category, 'Catégorie du matériel' %>
-  <%= device_form.select :category, @categories %>
-  <%= device_form.label :user, 'Utilisateur' %>
-  <%= device_form.select :users, @users %>
-  <%= device_form.submit 'Enregistrer' %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @device do |f| %>
+    <%= f.input :name, label: 'Nom du matériel' %>
+    <%= f.input :description, label: 'Nom du matériel' %>
+    <%= f.association :category, { collection: @categories } %>
+    <%= f.association :users, collection: @users %>
+    <%= f.submit 'Enregistrer' %>
+  <% end %>
+</div>

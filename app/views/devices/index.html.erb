@@ -1,1 +1,30 @@
-<%= Category.all.inspect %>
+<div class="container-fluid text-center">
+<h1>Parc informatique Brand And Celebrities</h1>
+<%= link_to new_device_path do %>
+  <button class="new btn btn-success">Ajouter un équipement</button>
+<% end %>
+</div>
+<div class="container">
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Categorie</th>
+        <th>Equipement</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    </tbody>
+      <% @devices.each do |device| %>
+      <tr>
+        <td class='col-md-2'><%= "Jean-Baptiste Beck" %></td>
+        <td class='col-md-3'><a href="<%= "jean-baptiste.beck@brandandcelebrities.com" %>"><%= "Jean-Baptiste Beck" %></a></td>
+        <td class='col-md-2'><%= device.category.label %></td>
+        <td class='col-md-2'><%= device.name %></td>
+        <td class='col-md-3'><%= device.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

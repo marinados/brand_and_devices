@@ -1,8 +1,8 @@
 class DevicesController < ApplicationController
   def new
     @device = Device.new
-    @users = User.all
-    @categories = Category.all
+    @users = User.all.map(&:name)
+    @category_names = Category.all.map(&:label)
   end
 
   def create
