@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'devices#index'
 
   resources :devices, only: [:new, :create, :edit, :update, :index, :show] do
@@ -7,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :show, :index]
+
+  resources :requests, only: [:new, :create, :index]
 end
