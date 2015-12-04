@@ -23,10 +23,8 @@ class CreateInitialTables < ActiveRecord::Migration
     end
 
     create_table :devices_users do |t|
-      t.belongs_to :device, index: true
-      t.belongs_to :user, index: true
-
-      t.timestamps
+      t.references :device
+      t.references :user
     end
 
     create_table :updates do |t|
@@ -40,6 +38,8 @@ class CreateInitialTables < ActiveRecord::Migration
       t.references :user
       t.references :device
       t.date :end_date
+
+      t.timestamps
     end
   end
 end

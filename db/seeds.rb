@@ -6,6 +6,7 @@ Device.destroy_all
   Category.create(label: type)
 end
 
+User.destroy_all
 [
   'Quentin Bordage': 'quentin',
   'Julien Boulenguer': 'julien',
