@@ -35,8 +35,8 @@ class DevicesController < ApplicationController
 
   def show
     set_device
-    #@last_user = DevicesUser.where(device: @device).order("updated_at")
     @updates = @device.updates
+    @timeline = DeviceProfile.new(@device).list_all_triggers
   end
 
   def index

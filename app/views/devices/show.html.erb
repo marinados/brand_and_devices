@@ -1,6 +1,6 @@
 <div class="container-fluid text-center">
   <h1><%= @device.name %></h1>
-  <h2><%# @last_user.first %></h2>
+  <h2><%# @device.users.last %></h2>
   <%= link_to devices_path do %>
     <button class='btn btn-success'>Tous les équipements</button>
   <% end %>
@@ -11,6 +11,8 @@
 <div class="container">
   <h4>Catégorie :</h4>
   <p><%= @device.category.label %></p>
+  <h4>Numéro de série</h4>
+  <p><%= @device.series %></p>
   <h4>Description :</h4>
   <p><%= @device.description %></p>
   <h4>Liste des anciens propriétaires :</h4>
@@ -19,17 +21,13 @@
       <li><%= user.name %></li>
     <% end %>
   </ul>
+  <h4>Timeline</h4>
+  <ul>
+  <%@timeline.each do |element| %>
+    <li><%= element %></li>
+  <% end %>
+  </ul>
 </div>
-
-<%= @device.inspect %>
-<br>
-<%= @device.users.inspect %>
-
-<br>
-<%= @device.devices_users.inspect%>
-<br>
-<%= @updates.inspect %>
-
 <br>
 <%= link_to 'Ajouter un update sur le matériel', new_device_update_path(@device) %>
 
