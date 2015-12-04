@@ -1,3 +1,8 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :devices
+  has_many :devices_users
+  has_many :devices, through: :devices_users
+
+  def to_s
+    name
+  end
 end

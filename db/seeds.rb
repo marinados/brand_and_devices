@@ -2,7 +2,7 @@ Category.destroy_all
 User.destroy_all
 Device.destroy_all
 
-['ordinateur', 'écran', 'souris', 'casque', 'clé USB'].each do |type|
+['Ordinateur', 'Ecran', 'Souris', 'Casque', 'Clé USB'].each do |type|
   Category.create(label: type)
 end
 
