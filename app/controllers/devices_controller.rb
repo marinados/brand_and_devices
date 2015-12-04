@@ -9,6 +9,7 @@ class DevicesController < ApplicationController
   end
 
   def show
+    @device = Device.find(params[:id])
   end
 
   def index
