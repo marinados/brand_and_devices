@@ -7,16 +7,22 @@
     <%= text_field_tag(:search) %>
   <% end %>
   <br />
-  <table class="table table-striped table-bordered">
-    <tr>
-      <th>#</th>
-      <th>Nom</th>
-      <th>Catégorie</th>
-      <th>Equipement</th>
-      <th>Description</th>
-    </tr>
-    <div id="results">
-      <%= render 'table_content', devices: @devices %>
-    </div>
-  </table>
+  <% if @devices.length.zero? %>
+    <p>Pas de résultats</p>
+  <% else %>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Catégorie</th>
+          <th>Equipement</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <%= render 'table_content', devices: @devices %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
