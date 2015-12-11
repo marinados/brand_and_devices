@@ -1,18 +1,18 @@
-<div class="container-fluid text-center">
-  <h1>Ajouter un équipement</h1>
-  <%= link_to devices_path do %>
-    <button class='new btn btn-success'>Retour aux équipements</button>
-  <% end %>
-</div>
-<div class="new-form">
-  <%= bootstrap_form_for @device do |device_form| %>
-    <%= device_form.text_field :name, label: 'Nom du matériel' %>
-    <%= device_form.text_area :description, label: 'Description du matériel' %>
-    <%= device_form.text_field :series, label: 'Numéro de série' %>
-    <%= device_form.collection_select :category_id, @categories, :id, :to_s, label: 'Catégorie du matériel', prompt: 'Sélectionnez une catégorie de matériel' %>
-    <%= device_form.collection_select :users, @users, :id, :to_s, label: 'Utilisateur', prompt: 'Sélectionnez un utilisateur'  %>
-    <div class="text-center">
-      <%= device_form.submit 'Enregistrer' %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="text-center">
+    <h1>Ajouter un équipement</h1>
+  </div>
+  <div class="new-form">
+    <%= bootstrap_form_for @device do |device_form| %>
+      <%= device_form.text_field :name, label: 'Nom du matériel' %>
+      <%= device_form.text_area :description, label: 'Description du matériel' %>
+      <%= device_form.text_field :series, label: 'Numéro de série' %>
+      <%= device_form.collection_select :category_id, @categories, :id, :to_s, label: 'Catégorie du matériel', prompt: 'Sélectionnez une catégorie de matériel' %>
+      <%= device_form.collection_select :users, @users, :id, :to_s, label: 'Utilisateur', prompt: 'Sélectionnez un utilisateur'  %>
+      <div class="text-center">
+        <%= device_form.submit 'Enregistrer' %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
