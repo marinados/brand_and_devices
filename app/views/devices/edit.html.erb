@@ -6,7 +6,7 @@
 </div>
 <div class="container-marged-top new-form">
   <%= bootstrap_form_for @devices_user, url: device_path(@device), html: {method: :patch} do |devices_user_form| %>
-    <%= devices_user_form.collection_select :user_id, @users, :id, :to_s, label: 'Nouvel utilisateur' %>
+    <%= devices_user_form.collection_select :user_id, @users, :id, :to_s, label: 'Nouvel utilisateur', prompt: 'Sélectionnez un nouvel utilisateur' %>
     <%= devices_user_form.submit 'Enregistrer les changements' %>
   <% end %>
 </div>

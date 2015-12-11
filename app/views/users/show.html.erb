@@ -1,1 +1,28 @@
-<%= @user.inspect %>
+<div class="container-fluid text-center">
+  <h1><%= @user.name %></h1>
+  <h2><%# @device.users.last %></h2>
+  <%= link_to users_path do %>
+    <button class='btn btn-success'>Tous les utilisateurs</button>
+  <% end %>
+</div>
+<div>
+  <h4>Tous les équipments actuellement assignés :</h4>
+  <ul>
+  <% @devices.each do |device| %>
+    <li class= 'row'>
+      <span class="col-md-6">
+        <%= device.name %>
+      </span>
+      <span class="col-md-6">
+        <%= device.category %>
+      </span>
+    </li>
+  <% end %>
+  </ul>
+  <h4>Timeline</h4>
+  <ul>
+  <%#@timeline.each do |element| %>
+    <li><%#= element %></li>
+  <%# end %>
+  </ul>
+</div>

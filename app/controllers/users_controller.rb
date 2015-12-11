@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @devices = @user.devices.reject do |device|
+      dates = device.devices_users.pluck(:created_at).map do |date|
+        date > device.devices_users.where(user: @user).last.created_at
+      end
+      dates.any?
+    end
   end
 
   def index

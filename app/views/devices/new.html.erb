@@ -9,8 +9,8 @@
     <%= device_form.text_field :name, label: 'Nom du matériel' %>
     <%= device_form.text_area :description, label: 'Description du matériel' %>
     <%= device_form.text_field :series, label: 'Numéro de série' %>
-    <%= device_form.collection_select :category_id, @categories, :id, :to_s, label: 'Catégorie du matériel' %>
-    <%= device_form.collection_select :users, @users, :id, :to_s, label: 'Utilisateur'  %>
+    <%= device_form.collection_select :category_id, @categories, :id, :to_s, label: 'Catégorie du matériel', prompt: 'Sélectionnez une catégorie de matériel' %>
+    <%= device_form.collection_select :users, @users, :id, :to_s, label: 'Utilisateur', prompt: 'Sélectionnez un utilisateur'  %>
     <div class="text-center">
       <%= device_form.submit 'Enregistrer' %>
     </div>

@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="xs-padded-bottom">
     <h1>Parc informatique Brand And Celebrities</h1>
-    <button class='btn btn-default btn-new'>Ajouter</button>
+    <%= link_to 'Ajouter', new_device_path, class: 'btn btn-default btn-new' %>
   </div>
   <%= form_tag('/devices/search', method: :get, remote: true) do %>
     <%= text_field_tag(:search) %>
