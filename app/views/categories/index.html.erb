@@ -1,0 +1,6 @@
+<h2>Catégories de l'équipment</h2>
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.label, category_path(category) %></li>
+  <% end %>
+</ul>

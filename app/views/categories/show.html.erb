@@ -1,0 +1,6 @@
+<h2><%= @category.label.pluralize.capitalize %></h2>
+<ul>
+  <% @devices.each do |device| %>
+  <li> <%= device.name %></li>
+  <% end %>
+</ul>
