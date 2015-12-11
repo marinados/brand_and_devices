@@ -6,6 +6,8 @@ class Device < ActiveRecord::Base
   belongs_to :category
 
   include PgSearch
-  multisearchable against: :name
-
+  multisearchable against: :name,
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

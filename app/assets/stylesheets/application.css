@@ -66,5 +66,22 @@ tr:hover {
 
 .index-table {
   padding: 10px;
+  margin-bottom: 70px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.sm-marged-top {
+  margin-top: 1em;
+}
+
+.sm-marged-bottom {
+  margin-bottom: 2em;
+}
+
+.md-marged-bottom {
+  margin-bottom: 3em;
 }
 

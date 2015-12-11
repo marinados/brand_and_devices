@@ -57,7 +57,10 @@ class DevicesController < ApplicationController
         end
       end
     end
-    render 'index'
+    respond_to do |format|
+      format.html { render 'index' }
+      format.js
+    end
   end
 
   private

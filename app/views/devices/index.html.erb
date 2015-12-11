@@ -4,31 +4,20 @@
   <button class="new btn btn-success">Ajouter un équipement</button>
 <% end %>
 <br /><br />
-<%= form_tag('/devices/search', method: :get) do %>
+<%= form_tag('/devices/search', method: :get, remote: true) do %>
   <%= text_field_tag(:search) %>
 <% end %>
 </div>
-<div class="container index-table">
-  <table class="table table-hover sortable">
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Categorie</th>
-        <th>Equipement</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    </tbody>
-      <% @devices.each do |device| %>
-        <tr data-href= "<%= device_url(device) %>" class="clickable-row">
-          <td class='col-md-2'><%= device.users.last %></td>
-          <td class='col-md-3'><a href="mailto:<%= device.users.last.email %>"><%= device.users.last.email %></a></td>
-          <td class='col-md-2'><%= device.category.label %></td>
-          <td class='col-md-2'><%= device.name %></td>
-          <td class='col-md-3'><%= device.description %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row md-marged-bottom sm-marged-top">
+    <div class="col-xs-2 bold">Nom</div>
+    <div class="col-xs-3 bold">Prénom</div>
+    <div class="col-xs-1 bold">Catégorie</div>
+    <div class="col-xs-2 bold">Equipement</div>
+    <div class="col-xs-3 bold">Description</div>
+    <div class="col-xs-1"></div>
+  </div>
+  <div id="results">
+    <%= render 'table_content', devices: @devices %>
+  </div>
 </div>

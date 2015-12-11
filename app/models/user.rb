@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   has_many :requests
 
   include PgSearch
-  multisearchable against: :name
+  multisearchable against: :name,
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def to_s
     name
