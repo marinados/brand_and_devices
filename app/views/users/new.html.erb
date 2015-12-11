@@ -1,7 +1,15 @@
-<%= form_for @user do |user_form| %>
-  <%= user_form.label :name, 'Nom de l\'utilisateur' %>
-  <%= user_form.text_field :name %>
-  <%= user_form.label :email, 'Email de l\'utilisateur' %>
-  <%= user_form.text_field :email %>
-  <%= user_form.submit 'Enregistrer l\'utilisateur'%>
-<% end %>
+<div class="container-fluid text-center">
+  <h1>Ajouter un utilisateur</h1>
+  <%= link_to users_path do %>
+    <button class='new btn btn-success'>Retour aux utilisateurs</button>
+  <% end %>
+</div>
+<div class="new-form">
+  <%= bootstrap_form_for @user do |user_form| %>
+    <%= user_form.text_field :name %>
+    <%= user_form.text_field :email %>
+    <div class="text-center">
+      <%= user_form.submit 'Enregistrer'%>
+    </div>
+  <% end %>
+</div>
