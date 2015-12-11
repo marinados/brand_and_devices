@@ -36,6 +36,8 @@ class DevicesController < ApplicationController
   def show
     set_device
     @updates = @device.updates
+    @all_users = @device.users
+    @current_user = @all_users.present? && @device.devices_users.order(created_at: :desc).first.user.present? ? @device.devices_users.order(created_at: :desc).first.user : 'personne'
     @timeline = DeviceProfile.new(@device).list_all_triggers
   end
 
