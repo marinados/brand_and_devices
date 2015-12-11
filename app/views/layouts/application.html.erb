@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper" class=''>
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <%= link_to 'Brand and Devices', root_path %>
+      </li>
+      <li>
+        <%= link_to 'Utilisateurs', users_path %>
+      </li>
+      <li>
+        <%= link_to 'Catégories', categories_path %>
+      </li>
+      <li>
+        <%= link_to 'Demandes d\'emprunt' %>
+      </li>
+      <li>
+        <%= link_to 'Nouvel utilisateur', new_user_path %></a>
+      </li>
+      <li>
+        <%= link_to 'Nouvel équipement', new_device_path %>
+      </li>
+      <li>
+        <%= link_to 'Nouvel emprunt', new_request_path %>
+      </li>
+    </ul>
+  </div>
+  <div id="page-content-wrapper">
+    <%= yield %>
+  </div>
+</div>
 
-<%= yield %>
 
 </body>
 </html>

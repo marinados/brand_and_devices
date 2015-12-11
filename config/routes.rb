@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'homepages#index'
+  root to: 'devices#index'
 
   get '/devices/search', to: 'devices#search'
   resources :devices, only: [:new, :create, :edit, :update, :index, :show] do

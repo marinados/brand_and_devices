@@ -1,12 +1,10 @@
 <% devices.each do |device| %>
-  <div class="row sm-marged-bottom">
-    <div class='col-md-2'><%= device.users.last %></div>
-    <div class='col-md-3'>
-      <a href="mailto:<%= device.users.last.email %>"><%= device.users.last.email %></a>
-    </div>
-    <div class='col-md-1'><%= device.category.label %></div>
-    <div class='col-md-2'><%= device.name %></div>
-    <div class='col-md-3'><%= device.description %></div>
-    <div class='col-md-1'><%= link_to 'Voir', device, class: 'btn btn-primary' %></div>
-  </div>
+  <tr>
+    <td><%= device.id %></td>
+    <td><%= link_to device.users.last, device.users.last %></td>
+    <td><%= link_to device.category.label, device.category %></td>
+    <td><%= device.name %></td>
+    <td><%= device.description %></td>
+    <td><%= link_to 'Voir', device, class: 'btn btn-primary' %></td>
+  </tr>
 <% end %>

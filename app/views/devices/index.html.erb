@@ -1,23 +1,22 @@
-<div class="container-fluid text-center">
-<h1>Parc informatique Brand And Celebrities</h1>
-<%= link_to new_device_path do %>
-  <button class="new btn btn-success">Ajouter un équipement</button>
-<% end %>
-<br /><br />
-<%= form_tag('/devices/search', method: :get, remote: true) do %>
-  <%= text_field_tag(:search) %>
-<% end %>
-</div>
-<div class="container">
-  <div class="row md-marged-bottom sm-marged-top">
-    <div class="col-xs-2 bold">Nom</div>
-    <div class="col-xs-3 bold">Prénom</div>
-    <div class="col-xs-1 bold">Catégorie</div>
-    <div class="col-xs-2 bold">Equipement</div>
-    <div class="col-xs-3 bold">Description</div>
-    <div class="col-xs-1"></div>
+<div class='container'>
+  <div class="xs-padded-bottom">
+    <h1>Parc informatique Brand And Celebrities</h1>
+    <button class='btn btn-default btn-new'>Ajouter</button>
   </div>
-  <div id="results">
-    <%= render 'table_content', devices: @devices %>
-  </div>
+  <%= form_tag('/devices/search', method: :get, remote: true) do %>
+    <%= text_field_tag(:search) %>
+  <% end %>
+  <br />
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Nom</th>
+      <th>Catégorie</th>
+      <th>Equipement</th>
+      <th>Description</th>
+    </tr>
+    <div id="results">
+      <%= render 'table_content', devices: @devices %>
+    </div>
+  </table>
 </div>

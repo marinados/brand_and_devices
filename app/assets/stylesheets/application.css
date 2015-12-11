@@ -16,16 +16,11 @@
  */
 
  body {
-  background-color: #fcf5b8;
+  background-color: white;
   font-family: 'Open Sans', sans-serif;
 }
 
-.container-fluid {
-  height: 300px;
-  background-color: #00E600;
-}
-
-.container {
+.container-marged-top {
   margin-top: -90px;
   background-color: white;
   border-radius: 5px;
@@ -33,7 +28,6 @@
 
 h1 {
   padding-top: 10px;
-  color: white;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -85,3 +79,10 @@ tr:hover {
   margin-bottom: 3em;
 }
 
+.xs-padded-bottom {
+  padding-bottom: 1.5em;
+}
+
+.btn-new {
+  display: inline-block;
+}

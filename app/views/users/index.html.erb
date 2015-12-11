@@ -1,6 +1,21 @@
-<h2>Liste de tous les utilisateurs</h2>
-<ul>
-<% @users.each do |user| %>
-  <li><%= link_to user.name, user_path(user) %></li>
-<% end %>
-</ul>
+<div class='container'>
+  <div class="xs-padded-bottom">
+    <h1>Tous les utilisateurs</h1>
+    <button class='btn btn-default btn-new'>Ajouter</button>
+  </div>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.name, user %></td>
+        <td><%= mail_to user.email %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
