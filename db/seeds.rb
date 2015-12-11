@@ -6,7 +6,6 @@ Device.destroy_all
   Category.create(label: type)
 end
 
-User.destroy_all
 [
   'Quentin Bordage': 'quentin',
   'Julien Boulenguer': 'julien',
@@ -31,9 +30,4 @@ User.destroy_all
   'Yasmine Benhammada': 'yasmine'
 ].each do |person|
   person.each { |k, v| User.create(name: k, email: v + '@brandandcelebrities.com') }
-end
-
-100.times do
-  device = Device.create(name: Faker::Commerce.product_name, category_id: rand(1..5), description: Faker::Lorem.paragraph)
-  DevicesUser.create(device: device, user_id: rand(1..21))
 end
