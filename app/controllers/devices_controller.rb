@@ -44,21 +44,25 @@ class DevicesController < ApplicationController
   end
 
   def search
-    @results = PgSearch.multisearch(params[:search])
-    @devices = []
-    @results.each do |result|
-      if result.searchable_type == 'Device'
-        Device.where("name ILIKE ?", "%#{result.content}%").each do |device|
-          @devices << device
-        end
-      elsif result.searchable_type == 'User'
-        User.where("name ILIKE ?", "%#{result.content}%").first.devices.each do |device|
-          @devices << device
+    if params[:search].blank?
+      @devices = Device.all
+    else
+      @results = PgSearch.multisearch(params[:search])
+      @devices = []
+      @results.each do |result|
+        if result.searchable_type == 'Device'
+          Device.where("name ILIKE ?", "%#{result.content}%").each do |device|
+            @devices << device
+          end
+        elsif result.searchable_type == 'User'
+          User.where("name ILIKE ?", "%#{result.content}%").first.devices.each do |device|
+            @devices << device
+          end
         end
       end
     end
     respond_to do |format|
-      format.html { render 'index' }
+      format.html { render 'devices/index' }
       format.js
     end
   end
