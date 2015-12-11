@@ -1,16 +1,16 @@
-<div class="container-fluid text-center">
-  <h1>Ajouter une demande d'emprunt</h1>
-  <%= link_to requests_path do %>
-    <button class='new btn btn-success'>Retour aux demandes d'emprunt</button>
-  <% end %>
+<div class="container">
+  <div class="text-center">
+    <h1>Ajouter une demande d'emprunt</h1>
+  </div>
+  <div class="new-form">
+    <%= bootstrap_form_for @request do |request_form| %>
+      <%= request_form.collection_select :user_id, @users, :id, :to_s, prompt: 'Sélectionnez un utilisateur assigné' %>
+      <%= request_form.collection_select :device_id, @devices, :id, :name %>
+      <%= request_form.date_field :end_date %>
+      <div class="text-center">
+        <%= request_form.submit 'Enregistrer la demande' %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div class="new-form">
-  <%= bootstrap_form_for @request do |request_form| %>
-    <%= request_form.collection_select :user_id, @users, :id, :to_s, prompt: 'Sélectionnez un utilisateur assigné' %>
-    <%= request_form.collection_select :device_id, @devices, :id, :name %>
-    <%= request_form.date_field :end_date %>
-    <div class="text-center">
-      <%= request_form.submit 'Enregistrer la demande' %>
-    </div>
-  <% end %>
-</div>
+
