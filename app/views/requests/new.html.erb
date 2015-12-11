@@ -4,8 +4,8 @@
   </div>
   <div class="new-form">
     <%= bootstrap_form_for @request do |request_form| %>
-      <%= request_form.collection_select :user_id, @users, :id, :to_s, prompt: 'Sélectionnez un utilisateur assigné' %>
-      <%= request_form.collection_select :device_id, @devices, :id, :name %>
+      <%= request_form.collection_select :user_id, @users, :id, :to_s, prompt: 'Sélectionnez un utilisateur' %>
+      <%= request_form.collection_select :device_id, @devices, :id, :name, prompt: 'Sélectionnez un équipment en question' %>
       <%= request_form.date_field :end_date %>
       <div class="text-center">
         <%= request_form.submit 'Enregistrer la demande' %>

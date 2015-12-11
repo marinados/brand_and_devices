@@ -6,22 +6,25 @@
 </div>
 <div>
   <h4>Tous les équipments actuellement assignés :</h4>
-  <ul>
+  <hr>
+  <div class="row">
+    <span class="col-md-4">Nom de l'équipement</span>
+    <span class="col-md-4">Catégorie de l'équipement</span>
+    <span class="col-md-4">Date de l'assignation</span>
+  </div>
+  <hr>
   <% @devices.each do |device| %>
-    <li class= 'row'>
-      <span class="col-md-6">
-        <%= device.name %>
+    <div class= 'row'>
+      <span class="col-md-4">
+        <%= link_to device.name, device_path(device) %>
       </span>
-      <span class="col-md-6">
+      <span class="col-md-4">
         <%= device.category %>
       </span>
-    </li>
+      <spen class="col-md-4">
+        <%= device.devices_users.where(user: @user).last.created_at.strftime('%b %d, %Y') %>
+      </spen>
+    </div>
   <% end %>
-  </ul>
-  <h4>Timeline</h4>
-  <ul>
-  <%#@timeline.each do |element| %>
-    <li><%#= element %></li>
-  <%# end %>
-  </ul>
+
 </div>

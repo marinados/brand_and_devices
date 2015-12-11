@@ -1,1 +1,26 @@
-<%= @requests.inspect %>
+<div class='container'>
+  <div class="xs-padded-bottom">
+    <h1>Toutes les demandes d'emprunt</h1>
+    <%= link_to 'Faire une demande d\'emprunt', new_request_path, class: 'btn btn-default btn-new' %>
+  </div>
+  <div class="request-list">
+    <% @requests.each do |request| %>
+      <div class="row">
+        <span class='col-md-3'>
+          <%= request.created_at.strftime('%d/%m/%Y') %>
+        </span>
+        <span class="col-md-3">
+          <%= request.user %>
+        </span>
+        <span class="col-md-3">
+          <%= request.device %>
+        </span>
+        <span class="col-md-3">
+          <%= request.end_date %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

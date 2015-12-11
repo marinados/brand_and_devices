@@ -10,4 +10,8 @@ class Device < ActiveRecord::Base
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def to_s
+    name
+  end
 end
