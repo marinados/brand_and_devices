@@ -4,7 +4,7 @@
     <button class='new btn btn-success'>Retour aux équipements</button>
   <% end %>
 </div>
-<div class="container-marged-top new-form">
+<div class="new-form">
   <%= bootstrap_form_for @device do |device_form| %>
     <%= device_form.text_field :name, label: 'Nom du matériel' %>
     <%= device_form.text_area :description, label: 'Description du matériel' %>
