@@ -1,6 +1,6 @@
 <div class="container-fluid text-center">
   <h1><%= @device.name %></h1>
-  <h2><%# @device.users.last %></h2>
+  <h4> Assigné à <%= @current_user %></h4>
   <%= link_to devices_path do %>
     <button class='btn btn-success'>Tous les équipements</button>
   <% end %>
